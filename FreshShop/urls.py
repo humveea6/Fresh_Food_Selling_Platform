@@ -14,15 +14,37 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,re_path
+from django.urls import path,re_path,include
+from django.views.static import serve
 import xadmin
+from rest_framework.documentation import include_docs_urls
+from rest_framework.routers import DefaultRouter
 
 from FreshShop import settings
-from django.views.static import serve
+from apps.goods.views import GoodsListViewset,CategoryViewset
+
+
+router = DefaultRouter()
+
+#商品列表url
+router.register(r'goods',GoodsListViewset,basename="Goods")
+
+
+#商品分类url
+router.register(r'categorys',CategoryViewset,basename="GoodsCategory")
 
 urlpatterns = [
+    #router相关
+    path('', include(router.urls)),
+    #admin页面
     path('admin/', xadmin.site.urls),
     #上传文件访问URL
     re_path('media/(?P<path>.*)$',serve,{"document_root":settings.MEDIA_ROOT}),
 
+    # #商品详情页
+    # re_path("goods/$",goods_list,name="goods_list"),
+
+    path("docs/",include_docs_urls(title="生鲜商城")),
+
+    re_path(r'^api-auth/', include('rest_framework.urls')),
 ]

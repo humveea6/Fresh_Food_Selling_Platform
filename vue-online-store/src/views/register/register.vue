@@ -6,7 +6,7 @@
 
         <div class="fr form-box">
             <div class="tab">
-                <h2 class="active">手机注册</h2>
+                <h2 class="active">邮箱注册</h2>
 
             </div>
             <div class="tab-form">
@@ -14,15 +14,15 @@
                     <input type="hidden" name="csrfmiddlewaretoken" value="ywSlOHdiGsK6VFB6iyhnB1B30khmz8SU">
 
                     <div class="form-group marb8">
-                        <label>手&nbsp;机&nbsp;号</label>
-                        <input id="jsRegMobile" name="account" v-model="mobile" type="text" placeholder="请输入您的手机号码">
+                        <label>邮箱地址</label>
+                        <input id="jsRegMobile" name="account" v-model="email" type="text" placeholder="请输入您的邮箱地址">
                     </div>
-                    <p class="error-text marb8" v-show="error.mobile">{{error.mobile}}</p>
+                    <p class="error-text marb8" v-show="error.email">{{error.email}}</p>
 
                     <div class="clearfix">
                         <div class="form-group marb8 verify-code">
-                            <label>短信验证码</label>
-                            <input id="jsPhoneRegCaptcha" v-model="code" type="text" placeholder="输入手机验证码">
+                            <label>发送验证码</label>
+                            <input id="jsPhoneRegCaptcha" v-model="code" type="text" placeholder="输入邮箱验证码">
                         </div>
                         <input class="verify-code-btn sendcode" type="button" id="jsSendCode" @click="seedMessage" :value="getMessageText">
                     </div>
@@ -37,7 +37,7 @@
                     <div class="auto-box marb8">
 
                     </div>
-                    <input class="btn btn-green" id="jsMobileRegBtn" @click="isRegister" type="button" value="注册并登录">
+                    <input class="btn btn-green" id="jsMobileRegBtn" @click="isRegister" type="button" value="注册">
                 </form>
             </div>
 
@@ -54,12 +54,12 @@ export default{
     data(){
         return{
             getMessageText:"免费获取验证码",
-            mobile:'',
+            email:'',
             password:'',
             username:'' ,
             code:'',
             error:{
-                mobile:'',
+                email:'',
                 password:'',
                 username:'' ,
                 code:'',
@@ -71,22 +71,22 @@ export default{
             var that = this;
             register({
                 password:that.password,
-                username:that.mobile ,
+                username:that.email ,
                 code:that.code,
             }).then((response)=> {
-              cookie.setCookie('name',response.data.username,7);
-              cookie.setCookie('token',response.data.token,7)
-              //存储在store
-              // 更新store数据
-              that.$store.dispatch('setInfo');
+              // cookie.setCookie('name',response.data.username,7);
+              // cookie.setCookie('token',response.data.token,7)
+              // //存储在store
+              // // 更新store数据
+              // that.$store.dispatch('setInfo');
               //跳转到首页页面
               this.$router.push({ name: 'index'})
 
           })
           .catch(function (error) {
-            that.error.mobile = error.username?error.username[0]:'';
+            that.error.email = error.username?error.username[0]:'';
             that.error.password = error.password?error.password[0]:'';
-            that.error.username = error.mobile?error.mobile[0]:'';
+            that.error.username = error.email?error.email[0]:'';
             that.error.code = error.code?error.code[0]:'';
           });
         },
@@ -109,7 +109,7 @@ export default{
                  },1000)
                 }
             getMessage({
-                    mobile:that.mobile
+                    email:that.email
                 }).then((response)=> {
 
               })

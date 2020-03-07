@@ -1,7 +1,7 @@
 
 import xadmin
 from xadmin import views
-from .models import VerifyCode
+from .models import VerifyCode,EmailVerifyRecord
 
 
 class BaseSetting(object):
@@ -15,10 +15,10 @@ class GlobalSettings(object):
     # menu_style = "accordion"
 
 
-class VerifyCodeAdmin(object):
-    list_display = ['code', 'mobile', "add_time"]
+class EmailVerifyRecordAdmin(object):
+    list_display = ['code', 'email', "send_time","send_type"]
 
 
-xadmin.site.register(VerifyCode, VerifyCodeAdmin)
+xadmin.site.register(EmailVerifyRecord, EmailVerifyRecordAdmin)
 xadmin.site.register(views.BaseAdminView, BaseSetting)
 xadmin.site.register(views.CommAdminView, GlobalSettings)

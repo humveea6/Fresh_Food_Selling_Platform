@@ -19,9 +19,15 @@ from django.views.static import serve
 import xadmin
 from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken import views
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 from FreshShop import settings
 from apps.goods.views import GoodsListViewset,CategoryViewset
+from apps.users.views import EmailViewset,UserViewset
 
 
 router = DefaultRouter()
@@ -29,9 +35,14 @@ router = DefaultRouter()
 #商品列表url
 router.register(r'goods',GoodsListViewset,basename="Goods")
 
-
 #商品分类url
 router.register(r'categorys',CategoryViewset,basename="GoodsCategory")
+
+#注册发送验证码url
+router.register(r'codes',EmailViewset,basename="codes")
+
+#用户注册
+router.register(r'users',UserViewset,basename="users")
 
 urlpatterns = [
     #router相关
@@ -47,4 +58,8 @@ urlpatterns = [
     path("docs/",include_docs_urls(title="生鲜商城")),
 
     re_path(r'^api-auth/', include('rest_framework.urls')),
+    # re_path(r'^api-token-auth/', views.obtain_auth_token),
+    #jwt认证
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('jwt_auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'corsheaders',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -131,7 +132,9 @@ USE_L10N = True
 
 USE_TZ = False
 
-
+AUTHENTICATION_BACKENDS = (
+    'apps.users.views.CustomBackend',
+)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -141,8 +144,20 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR,"media/")
 
 
+EMAIL_HOST="smtp.exmail.qq.com"
+EMAIL_PORT=465
+EMAIL_HOST_USER="humveea6@bupt.edu.cn"
+EMAIL_HOST_PASSWORD="Niallhoran1d"
+EMAIL_USE_SSL = True
+EMAIL_FROM="humveea6@bupt.edu.cn"
+
 REST_FRAMEWORK = {
     # 'PAGE_SIZE':10,
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }

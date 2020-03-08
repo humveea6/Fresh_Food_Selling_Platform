@@ -26,8 +26,9 @@ from rest_framework_simplejwt.views import (
 )
 
 from FreshShop import settings
-from apps.goods.views import GoodsListViewset,CategoryViewset
+from apps.goods.views import GoodsListViewset,CategoryViewset,HotSearchsViewset
 from apps.users.views import EmailViewset,UserViewset
+from apps.operations.views import UserFavViewset
 
 
 router = DefaultRouter()
@@ -43,6 +44,12 @@ router.register(r'codes',EmailViewset,basename="codes")
 
 #用户注册
 router.register(r'users',UserViewset,basename="users")
+
+#热搜词
+router.register(r'hotsearchs',HotSearchsViewset,basename="hotsearchs")
+
+#用户收藏
+router.register(r'userfavs',UserFavViewset,basename="userfavs")
 
 urlpatterns = [
     #router相关

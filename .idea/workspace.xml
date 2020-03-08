@@ -5,12 +5,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FreshShop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshShop/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FreshShop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshShop/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/adminx.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/serializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/operations/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operations/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/operations/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operations/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue-online-store/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-online-store/src/views/register/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/views/register/register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-online-store/src/axios/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/axios/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-online-store/src/views/login/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/views/login/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-online-store/src/views/productDetail/productDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/views/productDetail/productDetail.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +155,8 @@
       <workItem from="1583457372594" duration="547000" />
       <workItem from="1583458566986" duration="11895000" />
       <workItem from="1583501556112" duration="7646000" />
-      <workItem from="1583544098297" duration="24387000" />
+      <workItem from="1583544098297" duration="24875000" />
+      <workItem from="1583631834341" duration="14502000" />
     </task>
     <servers />
   </component>
@@ -159,38 +164,38 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1878" height="324" key="GridCell.Tab.0.bottom" timestamp="1583592971856">
+    <state width="1878" height="324" key="GridCell.Tab.0.bottom" timestamp="1583602353137">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.0.bottom/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583592971856" />
-    <state width="1878" height="324" key="GridCell.Tab.0.center" timestamp="1583592971855">
+    <state width="1878" height="324" key="GridCell.Tab.0.bottom/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353137" />
+    <state width="1878" height="324" key="GridCell.Tab.0.center" timestamp="1583602353137">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.0.center/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583592971855" />
-    <state width="1878" height="324" key="GridCell.Tab.0.left" timestamp="1583592971855">
+    <state width="1878" height="324" key="GridCell.Tab.0.center/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353137" />
+    <state width="1878" height="324" key="GridCell.Tab.0.left" timestamp="1583602353136">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.0.left/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583592971855" />
-    <state width="1878" height="324" key="GridCell.Tab.0.right" timestamp="1583592971856">
+    <state width="1878" height="324" key="GridCell.Tab.0.left/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353136" />
+    <state width="1878" height="324" key="GridCell.Tab.0.right" timestamp="1583602353137">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.0.right/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583592971856" />
-    <state width="1878" height="324" key="GridCell.Tab.1.bottom" timestamp="1583592971857">
+    <state width="1878" height="324" key="GridCell.Tab.0.right/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353137" />
+    <state width="1878" height="324" key="GridCell.Tab.1.bottom" timestamp="1583602353163">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.1.bottom/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583592971857" />
-    <state width="1878" height="324" key="GridCell.Tab.1.center" timestamp="1583592971857">
+    <state width="1878" height="324" key="GridCell.Tab.1.bottom/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353163" />
+    <state width="1878" height="324" key="GridCell.Tab.1.center" timestamp="1583602353138">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.1.center/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583592971857" />
-    <state width="1878" height="324" key="GridCell.Tab.1.left" timestamp="1583592971856">
+    <state width="1878" height="324" key="GridCell.Tab.1.center/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353138" />
+    <state width="1878" height="324" key="GridCell.Tab.1.left" timestamp="1583602353137">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.1.left/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583592971856" />
-    <state width="1878" height="324" key="GridCell.Tab.1.right" timestamp="1583592971857">
+    <state width="1878" height="324" key="GridCell.Tab.1.left/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353137" />
+    <state width="1878" height="324" key="GridCell.Tab.1.right" timestamp="1583602353163">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.1.right/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583592971857" />
+    <state width="1878" height="324" key="GridCell.Tab.1.right/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353163" />
     <state x="461" y="149" key="SettingsEditor" timestamp="1583379127703">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
@@ -203,11 +208,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/users/serializers.py</url>
-          <line>29</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/apps/users/views.py</url>
           <line>28</line>

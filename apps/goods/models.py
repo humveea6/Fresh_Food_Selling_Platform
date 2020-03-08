@@ -104,3 +104,18 @@ class Banner(BaseModel):
 
     def __str__(self):
         return self.good.name
+
+
+class HotSearchWords(BaseModel):
+    """
+    热搜词
+    """
+    keywords = models.CharField(default="", max_length=20, verbose_name="热搜词")
+    index = models.IntegerField(default=0, verbose_name="排序")
+
+    class Meta:
+        verbose_name = '热搜词'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.keywords

@@ -6,8 +6,8 @@ from rest_framework.pagination import PageNumberPagination
 from django.db.models import Q
 
 
-from apps.goods.models import Goods,GoodsCategory
-from apps.goods.serializer import GoodsSerializer,GoodsCategorySerializer
+from apps.goods.models import Goods,GoodsCategory,HotSearchWords
+from apps.goods.serializer import GoodsSerializer,GoodsCategorySerializer,HotWordsSerializer
 # Create your views here.
 
 class GoodsFilter(filter.FilterSet):
@@ -25,7 +25,7 @@ class GoodsFilter(filter.FilterSet):
 
     class Meta:
         model = Goods
-        fields = ['name', 'pricemin', 'pricemax']
+        fields = ['name', 'pricemin', 'pricemax', 'is_hot']
 
 
 class GoodsPagination(PageNumberPagination):
@@ -36,7 +36,7 @@ class GoodsPagination(PageNumberPagination):
     page_size_query_param = 'page_size'
     max_page_size = 100
 
-class GoodsListViewset(mixins.ListModelMixin,viewsets.GenericViewSet):
+class GoodsListViewset(mixins.ListModelMixin,mixins.RetrieveModelMixin,viewsets.GenericViewSet):
     """
     商品列表页
     """
@@ -74,3 +74,12 @@ class CategoryViewset(mixins.ListModelMixin,mixins.RetrieveModelMixin,viewsets.G
     """
     queryset = GoodsCategory.objects.filter(category_type=1)
     serializer_class = GoodsCategorySerializer
+
+
+
+class HotSearchsViewset(mixins.ListModelMixin, viewsets.GenericViewSet):
+    """
+    获取热搜词列表
+    """
+    queryset = HotSearchWords.objects.all().order_by("-index")
+    serializer_class = HotWordsSerializer

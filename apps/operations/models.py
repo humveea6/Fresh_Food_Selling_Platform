@@ -20,7 +20,7 @@ class UserFav(BaseModel):
         unique_together = ("user", "good")
 
     def __str__(self):
-        return self.user.name
+        return self.user.username
 
 
 class UserLeavingMessage(BaseModel):

@@ -218,7 +218,7 @@ import { getGoodsDetail, getFav, addFav, delFav, addShopCart,getShopCart } from 
         },
         addCollect () { //加入收藏
           addFav({
-              goods: this.productId
+              good: this.productId
           }).then((response)=> {
                 console.log(response.data);
                 this.hasFav = true

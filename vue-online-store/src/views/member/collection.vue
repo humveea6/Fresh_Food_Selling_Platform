@@ -16,17 +16,17 @@
                         </tr>
                         <tr v-for="(item,index) in collections">
                             <td bgcolor="#ffffff">
-                                <router-link :to="'/app/home/productDetail/'+item.goods.id" class="f6" target="_blank">{{item.goods.name}}</router-link>
+                                <router-link :to="'/app/home/productDetail/'+item.good.id" class="f6" target="_blank">{{item.good.name}}</router-link>
                             </td>
-                            <td bgcolor="#ffffff">本店价<span class="goods-price">￥{{item.goods.shop_price}}元</span>
+                            <td bgcolor="#ffffff">本店价<span class="good-price">￥{{item.good.shop_price}}元</span>
                             </td>
                             <td align="center" bgcolor="#ffffff">
-                                <a class="f6" @click="deletePro(index, item.goods.id)">删除</a>
+                                <a class="f6" @click="deletePro(index, item.good.id)">删除</a>
                             </td>
                         </tr>
                         <!-- <tr>
-                            <td bgcolor="#ffffff"><a href="http://sx.web51.youxueshop.com/goods.php?id=2" class="f6">田然牛肉大黄瓜条生鲜牛肉冷冻真空黄牛</a></td>
-                            <td bgcolor="#ffffff">          本店价<span class="goods-price">￥70元</span>
+                            <td bgcolor="#ffffff"><a href="http://sx.web51.youxueshop.com/good.php?id=2" class="f6">田然牛肉大黄瓜条生鲜牛肉冷冻真空黄牛</a></td>
+                            <td bgcolor="#ffffff">          本店价<span class="good-price">￥70元</span>
                             </td>
                             <td align="center" bgcolor="#ffffff">
                                 <a href="javascript:if (confirm(&#39;确定将此商品加入关注列表么？&#39;)) location.href=&#39;user.php?act=add_to_attention&amp;rec_id=30&#39;" class="f6">关注</a>
@@ -34,8 +34,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td bgcolor="#ffffff"><a href="http://sx.web51.youxueshop.com/goods.php?id=1" class="f6">新鲜水果甜蜜香脆单果约800克</a></td>
-                            <td bgcolor="#ffffff">          促销价<span class="goods-price">￥156元</span>
+                            <td bgcolor="#ffffff"><a href="http://sx.web51.youxueshop.com/good.php?id=1" class="f6">新鲜水果甜蜜香脆单果约800克</a></td>
+                            <td bgcolor="#ffffff">          促销价<span class="good-price">￥156元</span>
                             </td>
                             <td align="center" bgcolor="#ffffff">
                                 <a href="javascript:if (confirm(&#39;确定将此商品加入关注列表么？&#39;)) location.href=&#39;user.php?act=add_to_attention&amp;rec_id=29&#39;" class="f6">关注</a>
@@ -201,7 +201,7 @@
     font-weight:bold;
     color:#09c762
 }
-.my_nala_centre .relate_goods {
+.my_nala_centre .relate_good {
     border:1px solid #e4e4e4;
     border-top:0
 }

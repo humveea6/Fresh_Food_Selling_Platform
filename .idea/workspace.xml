@@ -5,16 +5,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FreshShop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshShop/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FreshShop/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshShop/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/operations/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operations/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/operations/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operations/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/operations/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/operations/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue-online-store/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-online-store/src/axios/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/axios/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-online-store/src/views/login/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/views/login/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-online-store/src/views/productDetail/productDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/views/productDetail/productDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-online-store/src/views/member/collection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/views/member/collection.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-online-store/src/views/member/userinfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-online-store/src/views/member/userinfo.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +153,8 @@
       <workItem from="1583458566986" duration="11895000" />
       <workItem from="1583501556112" duration="7646000" />
       <workItem from="1583544098297" duration="24875000" />
-      <workItem from="1583631834341" duration="14502000" />
+      <workItem from="1583631834341" duration="19353000" />
+      <workItem from="1583755015683" duration="6872000" />
     </task>
     <servers />
   </component>
@@ -164,38 +162,38 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1878" height="324" key="GridCell.Tab.0.bottom" timestamp="1583602353137">
+    <state width="1878" height="324" key="GridCell.Tab.0.bottom" timestamp="1583687626471">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.0.bottom/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353137" />
-    <state width="1878" height="324" key="GridCell.Tab.0.center" timestamp="1583602353137">
+    <state width="1878" height="324" key="GridCell.Tab.0.bottom/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583687626471" />
+    <state width="1878" height="324" key="GridCell.Tab.0.center" timestamp="1583687626469">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.0.center/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353137" />
-    <state width="1878" height="324" key="GridCell.Tab.0.left" timestamp="1583602353136">
+    <state width="1878" height="324" key="GridCell.Tab.0.center/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583687626469" />
+    <state width="1878" height="324" key="GridCell.Tab.0.left" timestamp="1583687626467">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.0.left/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353136" />
-    <state width="1878" height="324" key="GridCell.Tab.0.right" timestamp="1583602353137">
+    <state width="1878" height="324" key="GridCell.Tab.0.left/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583687626467" />
+    <state width="1878" height="324" key="GridCell.Tab.0.right" timestamp="1583687626470">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.0.right/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353137" />
-    <state width="1878" height="324" key="GridCell.Tab.1.bottom" timestamp="1583602353163">
+    <state width="1878" height="324" key="GridCell.Tab.0.right/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583687626470" />
+    <state width="1878" height="324" key="GridCell.Tab.1.bottom" timestamp="1583687626472">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.1.bottom/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353163" />
-    <state width="1878" height="324" key="GridCell.Tab.1.center" timestamp="1583602353138">
+    <state width="1878" height="324" key="GridCell.Tab.1.bottom/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583687626472" />
+    <state width="1878" height="324" key="GridCell.Tab.1.center" timestamp="1583687626472">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.1.center/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353138" />
-    <state width="1878" height="324" key="GridCell.Tab.1.left" timestamp="1583602353137">
+    <state width="1878" height="324" key="GridCell.Tab.1.center/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583687626472" />
+    <state width="1878" height="324" key="GridCell.Tab.1.left" timestamp="1583687626471">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.1.left/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353137" />
-    <state width="1878" height="324" key="GridCell.Tab.1.right" timestamp="1583602353163">
+    <state width="1878" height="324" key="GridCell.Tab.1.left/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583687626471" />
+    <state width="1878" height="324" key="GridCell.Tab.1.right" timestamp="1583687626472">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
-    <state width="1878" height="324" key="GridCell.Tab.1.right/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583602353163" />
+    <state width="1878" height="324" key="GridCell.Tab.1.right/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583687626472" />
     <state x="461" y="149" key="SettingsEditor" timestamp="1583379127703">
       <screen x="0" y="23" width="1920" height="974" />
     </state>
@@ -204,17 +202,6 @@
       <screen x="0" y="23" width="1920" height="974" />
     </state>
     <state x="509" y="253" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/1920.23.1920.1057/0.23.1920.974@0.23.1920.974" timestamp="1583503991671" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/users/views.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FreshShop$import_category_data.coverage" NAME="import_category_data Coverage Results" MODIFIED="1583510302330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db_tools" />

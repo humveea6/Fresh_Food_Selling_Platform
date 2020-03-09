@@ -30,13 +30,13 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="28%" align="right" bgcolor="#FFFFFF">电子邮件地址： </td>
-                                        <td width="72%" align="left" bgcolor="#FFFFFF"><input name="email" type="text" placeholder="xxxx@xx.com" size="25" class="inputBg" v-model="userInfo.email"></td>
+                                        <td width="28%" align="right" bgcolor="#FFFFFF">手机号码： </td>
+                                        <td width="72%" align="left" bgcolor="#FFFFFF"><input name="mobile" type="text" placeholder="手机号码" size="25" class="inputBg" v-model="userInfo.mobile"></td>
                                     </tr>
                                     <tr>
-                                        <td width="28%" align="right" bgcolor="#FFFFFF" id="extend_field5i">手机：</td>
+                                        <td width="28%" align="right" bgcolor="#FFFFFF" id="extend_field5i">邮箱地址：</td>
                                         <td width="72%" align="left" bgcolor="#FFFFFF">
-                                            <input disabled name="extend_field5" type="text" class="inputBg" v-model="userInfo.mobile"><span style="color:#FF0000"> *</span>
+                                            <input disabled name="extend_field5" type="text" class="inputBg" v-model="userInfo.email"><span style="color:#FF0000"> *</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -63,9 +63,9 @@ import {getUserDetail, updateUserInfo} from '../../api/api'
             return {
                 userInfo: {
                     birthday: '',
-                    sex: '',
+                    gender: '',
                     email: '',
-                    phone: '',
+                    mobile: '',
                 }
             };
         },

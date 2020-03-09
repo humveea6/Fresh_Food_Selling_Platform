@@ -3,13 +3,15 @@ from django.shortcuts import render
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth import get_user_model
 from django.db.models import Q
-from rest_framework.mixins import CreateModelMixin
-from rest_framework import viewsets,status
+from rest_framework.mixins import CreateModelMixin,RetrieveModelMixin,UpdateModelMixin
+from rest_framework import viewsets,status,permissions,authentication
 from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import  JWTAuthentication
 
 from apps.users.models import EmailVerifyRecord
-from .serializers import EmailSerializer,UserRegisterSerializer
+from .serializers import EmailSerializer,UserRegisterSerializer,UserDetailSerializer
 from apps.utils.email import send_email
+from apps.utils.permissions import IsOwnerOrReadOnly
 
 User=get_user_model()
 
@@ -59,11 +61,31 @@ class EmailViewset(CreateModelMixin, viewsets.GenericViewSet):
         # return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
-class UserViewset(CreateModelMixin,viewsets.GenericViewSet):
+class UserViewset(CreateModelMixin,RetrieveModelMixin,viewsets.GenericViewSet,UpdateModelMixin):
     """
     处理用户注册
     """
-    serializer_class = UserRegisterSerializer
+    # serializer_class = UserRegisterSerializer
+    authentication_classes = (authentication.SessionAuthentication, JWTAuthentication)
     #什么作用？
     print("ok2")
     queryset = User.objects.all()
+
+    def get_permissions(self):
+        if self.action == "retrieve" or "update":
+            return [permissions.IsAuthenticated()]
+        elif self.action == "create":
+            return []
+        else:
+            return []
+
+    def get_serializer_class(self):
+        if self.action == "retrieve":
+            return UserDetailSerializer
+        elif self.action == "create":
+            return UserRegisterSerializer
+        else:
+            return UserDetailSerializer
+
+    def get_object(self):
+        return self.request.user

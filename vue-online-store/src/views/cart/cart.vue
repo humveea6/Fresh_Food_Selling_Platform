@@ -5,32 +5,32 @@
         <a  class="btn" id="checkout-top" @click="balanceCount">&nbsp;去结算&nbsp;</a> </div>
     </div>
     <div class="cart-box" id="cart-box">
-      <div class="hd"> <span class="no2" id="itemsnum-top">{{goods.goods_list.length}}件商品</span>
+      <div class="hd"> <span class="no2" id="itemsnum-top">{{good.good_list.length}}件商品</span>
         <span class="no4">单价</span> <span>数量</span> <span>小计</span>
       </div>
-      <div class="goods-list">
+      <div class="good-list">
         <ul>
-          <li class="cle hover" style="border-bottom-style: none;" v-for="(item,index) in goods.goods_list">
+          <li class="cle hover" style="border-bottom-style: none;" v-for="(item,index) in good.good_list">
             <div class="pic">
-              <a target="_blank"> <img :alt="item.goods.name" :src="item.goods.goods_front_image"></a>
+              <a target="_blank"> <img :alt="item.good.name" :src="item.good.good_front_image"></a>
             </div>
             <div class="name">
-              <a target="_blank">{{item.goods.name}}</a>
+              <a target="_blank">{{item.good.name}}</a>
               <p></p>
             </div>
             <div class="price-xj">
-              <p><em>￥{{item.goods.shop_price}}元</em></p>
+              <p><em>￥{{item.good.shop_price}}元</em></p>
             </div>
             <div class="nums" id="nums">
-              <span class="minus" title="减少1个数量" @click="reduceCartNum(index, item.goods.id);">-</span>
+              <span class="minus" title="减少1个数量" @click="reduceCartNum(index, item.good.id);">-</span>
               <input type="text"  v-model="item.nums" >
-              <span class="add" title="增加1个数量" @click="addCartNum(index, item.goods.id);">+</span>
+              <span class="add" title="增加1个数量" @click="addCartNum(index, item.good.id);">+</span>
             </div>
             <div class="price-xj"><span></span>
-              <em id="total_items_3137">￥{{item.goods.shop_price * item.nums}}元</em>
+              <em id="total_items_3137">￥{{item.good.shop_price * item.nums}}元</em>
             </div>
             <div class="del">
-              <a class="btn-del" @click="deleteGoods(index, item.goods.id)">删除</a>
+              <a class="btn-del" @click="deletegood(index, item.good.id)">删除</a>
             </div>
           </li>
         </ul>
@@ -42,7 +42,7 @@
           <p><a class="graybtn" @click="continueShopping">继续购物</a></p>
         </div>
         <div class="fr" id="price-total">
-          <p><span id="selectedCount">{{goods.goods_list.length}}</span>件商品，总价：<span class="red"><strong id="totalSkuPrice">￥{{totalPrice}}元</strong></span></p>
+          <p><span id="selectedCount">{{good.good_list.length}}</span>件商品，总价：<span class="red"><strong id="totalSkuPrice">￥{{totalPrice}}元</strong></span></p>
         </div>
         <div class="extr">
           <div class="address">
@@ -93,9 +93,9 @@
         address:'',
         signer_name:'',
         signer_mobile:'',
-        goods: {
+        good: {
           totalPrice:null,
-          goods_list: [
+          good_list: [
           ],
         }
       };
@@ -111,15 +111,15 @@
       getShopCarts().then((response)=> {
         console.log(response.data)
         // 更新store数据
-        //this.goods_list = response.data;
+        //this.good_list = response.data;
         var totalPrice = 0
-        this.goods.goods_list = response.data;
+        this.good.good_list = response.data;
         response.data.forEach(function(entry) {
-          totalPrice += entry.goods.shop_price*entry.nums
-          console.log(entry.goods.shop_price);
+          totalPrice += entry.good.shop_price*entry.nums
+          console.log(entry.good.shop_price);
         });
 
-        this.goods.totalPrice = totalPrice
+        this.good.totalPrice = totalPrice
         this.totalPrice = totalPrice
       }).catch(function (error) {
       });
@@ -135,9 +135,9 @@
     methods: {
       addCartNum(index, id) { //添加数量
         updateShopCart(id,{
-          nums: this.goods.goods_list[index].nums+1
+          nums: this.good.good_list[index].nums+1
         }).then((response)=> {
-          this.goods.goods_list[index].nums = this.goods.goods_list[index].nums + 1;
+          this.good.good_list[index].nums = this.good.good_list[index].nums + 1;
           // 更新store数据
           this.$store.dispatch('setShopList');
           //更新总价
@@ -148,18 +148,18 @@
         });
       },
       setTotalPrice(){
-        var goods_list = this.goods.goods_list;
+        var good_list = this.good.good_list;
         var totalPrice = 0;
-        for(var i = 0;i<goods_list.length;i++){
-          totalPrice=totalPrice+goods_list[i].nums* goods_list[i].goods.shop_price;
+        for(var i = 0;i<good_list.length;i++){
+          totalPrice=totalPrice+good_list[i].nums* good_list[i].good.shop_price;
         }
         this.totalPrice = totalPrice;
       },
-      deleteGoods(index,id) { //移除购物车
+      deletegood(index,id) { //移除购物车
         alert('您确定把该商品移除购物车吗');
         deleteShopCart(id).then((response)=> {
           console.log(response.data);
-          this.goods.goods_list.splice(index,1);
+          this.good.good_list.splice(index,1);
 
           // 更新store数据
           this.$store.dispatch('setShopList');
@@ -169,13 +169,13 @@
         });
       },
       reduceCartNum(index, id) { //删除数量
-        if(this.goods.goods_list[index].nums<=1){
-          this.deleteGoods(index, id)
+        if(this.good.good_list[index].nums<=1){
+          this.deletegood(index, id)
         }else{
           updateShopCart(id,{
-            nums: this.goods.goods_list[index].nums-1
+            nums: this.good.good_list[index].nums-1
           }).then((response)=> {
-            this.goods.goods_list[index].nums = this.goods.goods_list[index].nums - 1;
+            this.good.good_list[index].nums = this.good.good_list[index].nums - 1;
             // 更新store数据
             this.$store.dispatch('setShopList');
             //更新总价
@@ -197,7 +197,7 @@
 
         }).then((response)=> {
           console.log(response.data);
-          this.goods.goods_list.splice(0, this.goods.goods_list.length);
+          this.good.good_list.splice(0, this.good.good_list.length);
           // 更新store数据
           this.$store.dispatch('setShopList');
 
@@ -360,14 +360,14 @@
   .cart-box .hd span.no4 {
     width:170px
   }
-  .goods-list {
+  .good-list {
     margin-bottom:8px
   }
-  .goods-list ul {
+  .good-list ul {
     border:1px solid #e4e4e4;
     background-color:#fff
   }
-  .goods-list li {
+  .good-list li {
   +display:inline;
     zoom:1;
     width:1006px;
@@ -375,76 +375,76 @@
     color:#666;
     padding:10px
   }
-  .goods-list li a {
+  .good-list li a {
     color:#666
   }
-  .goods-list li .check {
+  .good-list li .check {
     height:20px;
     width:35px;
     padding:18px 0 0 15px;
     float:left
   }
-  .goods-list li .pic {
+  .good-list li .pic {
     height:62px;
     width:62px;
     float:left
   }
-  .goods-list li .pic img {
+  .good-list li .pic img {
     height:60px;
     width:60px;
     vertical-align:top;
     border:1px solid #eee
   }
-  .goods-list li .name {
+  .good-list li .name {
     width:290px;
     height:auto;
     line-height:18px;
     float:left;
     padding:5px 60px 0 10px
   }
-  .goods-list li .name i {
+  .good-list li .name i {
     background-color:#fff2f2;
     color:#09c762;
     padding:0 2px;
     border-radius:2px
   }
-  .goods-list li .name .isfree {
+  .good-list li .name .isfree {
     background-color:#95ce67;
     color:#fff
   }
-  .goods-list li .name .isfree_2 {
+  .good-list li .name .isfree_2 {
     background-color:#53a90e;
     color:#fff
   }
-  .goods-list li .name p {
+  .good-list li .name p {
     margin-top:5px
   }
-  .goods-list li .price-one {
+  .good-list li .price-one {
     padding:22px 0 0 0;
     width:200px;
     float:left;
     font-size:12px
   }
-  .goods-list li .price-one p.mt {
+  .good-list li .price-one p.mt {
     margin-top:-18px
   }
-  .goods-list li .price-one span {
+  .good-list li .price-one span {
     margin-right:4px
   }
-  .goods-list li .price-one cite {
+  .good-list li .price-one cite {
     font-size:14px;
     margin-right:3px
   }
-  .goods-list li .price-one .time {
+  .good-list li .price-one .time {
     color:#f30
   }
-  .goods-list li .nums {
+  .good-list li .nums {
     padding-top:18px;
     width:128px;
     float:left;
     position:relative
   }
-  .goods-list li .nums span {
+  .good-list li .nums span {
     float:left;
     display:block;
     visibility:hidden;
@@ -459,15 +459,15 @@
     overflow:hidden;
     line-height:18px
   }
-  .goods-list li .nums span:hover {
+  .good-list li .nums span:hover {
     background-color:#fff
   }
-  .goods-list li .nums span.disabled {
+  .good-list li .nums span.disabled {
     cursor:not-allowed;
     color:#ddd;
     background-color:#f1f1f1
   }
-  .goods-list li .nums input {
+  .good-list li .nums input {
     float:left;
     width:30px;
     height:18px;
@@ -479,73 +479,73 @@
     color:#666;
     font-size:14px
   }
-  .goods-list li .nums .only1 {
+  .good-list li .nums .only1 {
     margin-left:33px;
     font-size:14px
   }
-  .goods-list li .price-xj {
+  .good-list li .price-xj {
     padding:18px 0 0 0;
     width:150px;
     float:left
   }
-  .goods-list li .price-xj span {
+  .good-list li .price-xj span {
     font-size:12px
   }
-  .goods-list li .price-xj em {
+  .good-list li .price-xj em {
     font-size:14px
   }
-  .goods-list li .price-xj cite {
+  .good-list li .price-xj cite {
     font-size:14px;
     color:#09c762;
     margin:0 3px
   }
-  .goods-list li .del {
+  .good-list li .del {
     padding:20px 0 0 0;
     width:98px;
     float:right;
     text-align:center
   }
-  .goods-list li .del p {
+  .good-list li .del p {
     margin-top:-10px;
     margin-bottom:5px
   }
-  .goods-list li.multi-item .item-list {
+  .good-list li.multi-item .item-list {
     float:left;
     width:380px
   }
-  .goods-list li.multi-item .item-list div {
+  .good-list li.multi-item .item-list div {
     margin-bottom:5px
   }
-  .goods-list li.hover .nums span {
+  .good-list li.hover .nums span {
     visibility:visible
   }
-  .goods-list li.hover .nums input {
+  .good-list li.hover .nums input {
     border-color:#e8e8e8;
     background:#Fff
   }
-  .goods-list li.disabled .nums span {
+  .good-list li.disabled .nums span {
     visibility:hidden
   }
-  .goods-list li.disabled .nums input {
+  .good-list li.disabled .nums input {
     background:0;
     border:0
   }
-  .goods-list li.disabled .del {
+  .good-list li.disabled .del {
     line-height:24px
   }
-  .goods-list li.disabled .del span.red {
+  .good-list li.disabled .del span.red {
     padding:3px 8px;
     font-size:12px;
     background-color:#ddd;
     border-radius:2px;
     color:#333
   }
-  .goods-list li.disabled {
+  .good-list li.disabled {
     background-color:#f1f1f1;
     opacity:.6;
     filter:Alpha(opacity=60)
   }
-  .goods-list li.disabled .price-one .time {
+  .good-list li.disabled .price-one .time {
     color:#999
   }
 

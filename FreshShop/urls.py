@@ -29,6 +29,7 @@ from FreshShop import settings
 from apps.goods.views import GoodsListViewset,CategoryViewset,HotSearchsViewset
 from apps.users.views import EmailViewset,UserViewset
 from apps.operations.views import UserFavViewset,UserLeaveMessageViewset,AdressViewset
+from apps.trade.views import ShoppingCartViewset
 
 
 router = DefaultRouter()
@@ -56,6 +57,9 @@ router.register(r'messages',UserLeaveMessageViewset,basename="UserLeavingMessage
 
 #收货地址
 router.register(r'address',AdressViewset,basename="UserAddress")
+
+#购物车
+router.register(r'shopcarts',ShoppingCartViewset,basename="ShoppingCart")
 
 urlpatterns = [
     #router相关
